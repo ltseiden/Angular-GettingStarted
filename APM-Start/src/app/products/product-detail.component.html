@@ -2,6 +2,61 @@
   <div class='panel-heading'>
     {{ pageTitle + ': ' + product.productName }}
   </div>
+  <div class='panel-body'>
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <img
+            [src]='product.imageUrl'
+            [title]='product.productName'
+            [style.width.px]='imageWidth'
+            [style.margin.px]='imageMargin'>     
+        </div>
+        <div class='col-sm-6'>
+          <div class='row'>
+            <div class='col-sm-6'>
+                Product
+            </div>
+            <div class='col-sm-6'>
+                {{ product.productName }}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+                Code
+            </div>
+            <div class='col-sm-6'>
+                {{ product.productCode | lowercase | convertToSpaces: '-' }}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+                Available
+            </div>
+            <div class='col-sm-6'>
+                {{ product.releaseDate }}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+                Price
+             </div>
+             <div class='col-sm-6'>
+                {{ product.price | currency:'USD':true:'1.2-2' }}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+                5 Star Rating
+            </div>
+            <div class='col-sm-6'>
+                <pm-star [rating]='product.starRating'></pm-star>   
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class='panel-footer'>
     <a class='btn btn-default' (click)='onBack()' style='width:80px'>
       <i class='glyphicon glyphicon-chevron-left'></i> Back
